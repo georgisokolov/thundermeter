@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  php:
+    build: ./php-fpm
+    volumes:
+      - ../www:/code
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ../www:/code
+      - ./site.conf:/etc/nginx/conf.d/default.conf
+      - ../logs:/var/log/nginx/
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - ../mysql:/var/lib/mysql
+      - ./my.conf:/etc/mysql/conf.d/my.cnf
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: thunder
+  adminer:
+    image: adminer
+    ports:
+      - "8080:8080"
+    restart: always
