@@ -18,7 +18,7 @@
           <a class="nav-link" href="#">Recipients</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Setup</a>
+          <a class="nav-link" href="#">Users</a>
         </li>
       </ul>
     </div>

@@ -3,3 +3,4 @@ composer.lock
 client_secret.json
 mysql
 logs
+.c9
